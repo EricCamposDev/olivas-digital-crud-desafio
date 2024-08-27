@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\SellerController;
+use App\Models\Seller;
+use App\Models\SellerCustomer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('app');
-});
-
-
+Route::get("/", [AppController::class, "dashboard"])->name("dashboard");
+Route::get("sellers/list", [SellerController::class, "list"])->name("selllers.list");
+Route::get("sellers/create", [SellerController::class, "createPage"])->name("selllers.create");
+Route::post("sellers/create", [SellerController::class, "store"])->name("selllers.store");
+Route::put("sellers/edit/{id}", [SellerController::class, "edit"])->name("selllers.edit");
+Route::delete("sellers/delete/{id}", [SellerController::class, "delete"])->name("sellers.delete");
