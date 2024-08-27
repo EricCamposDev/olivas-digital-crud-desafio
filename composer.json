@@ -36,7 +36,8 @@
         "init-project": [
             "composer install",
             "php artisan migrate",
-            "php artisan db:seed"
+            "php artisan db:seed",
+            "php artisan serve"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
