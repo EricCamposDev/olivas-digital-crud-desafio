@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\SellerController;
+use App\Http\Controllers\CustomerController;
 use App\Models\Seller;
 use App\Models\SellerCustomer;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,8 @@ Route::get("sellers/create", [SellerController::class, "createPage"])->name("sel
 Route::post("sellers/create", [SellerController::class, "store"])->name("selllers.store");
 Route::put("sellers/edit/{id}", [SellerController::class, "edit"])->name("selllers.edit");
 Route::delete("sellers/delete/{id}", [SellerController::class, "delete"])->name("sellers.delete");
+
+Route::get("customers/list", [CustomerController::class, "list"])->name("customers.list");
+Route::get("customers/create", [CustomerController::class, "create"])->name("customers.create");
+Route::get("customers/preview/{id}", [CustomerController::class, "preview"])->name("customers.preview");
+Route::delete("customers/delete/{id}", [CustomerController::class, "delete"])->name("customers.delete");
