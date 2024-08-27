@@ -9,7 +9,10 @@ class SellerController extends Controller
 {
     public function list()
     {
-        return view("pages.sellers.list");
+        $sellers = Seller::all();
+        return view("pages.sellers.list", [
+            'sellers' => $sellers
+        ]);
     }
 
     public function createPage()
