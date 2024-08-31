@@ -1,35 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Sellers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Seller;
 
-class SellerController extends Controller
+class SellerExecuteController extends Controller
 {
-    public function list()
-    {
-        $sellers = Seller::all();
-        return view("pages.sellers.list", [
-            'sellers' => $sellers
-        ]);
-    }
-
-    public function createPage()
-    {
-        return view('pages.sellers.create');
-    }
-
-    public function editPage(int $id)
-    {
-        return view("pages.sellers.edit");
-    }
-
-    public function deletePage(int $id)
-    {
-        return view("pages.sellers.delete");
-    }
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -44,17 +22,16 @@ class SellerController extends Controller
         }else{
             return redirect("sellers/list")->with("error","Falha ao cadastrar vendedor.")->setStatusCode(400);
         }
-
     }
 
-    public function edit(Request $request)
+    public function update(Request $request)
     {
 
     }
 
-    public function delete(int $id)
-    {
+    public function destroy(Seller $id)
+    {  
         Seller::destroy($id);
         return redirect("/sellers/list")->with("success","Vendedor deletado com sucesso.")->setStatusCode(204);
-    }  
+    }
 }
