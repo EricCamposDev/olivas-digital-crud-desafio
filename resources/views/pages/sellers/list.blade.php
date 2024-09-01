@@ -26,7 +26,7 @@
                         <td>{{ $seller->name }}</td>
                         <td>{{ $seller->email }}</td>
                         <td class="text-center">
-                            <a href="{{ route('sellers.show', $seller->id) }}" class="btn btn-info btn-sm">
+                            <a href="{{ route('sellers.preview', $seller->id) }}" class="btn btn-info btn-sm">
                                 <i class="bi bi-eye"></i> Visualizar
                             </a>
                             <a href="{{ route('sellers.edit', $seller->id) }}" class="btn btn-warning btn-sm">

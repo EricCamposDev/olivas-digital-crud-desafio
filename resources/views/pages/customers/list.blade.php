@@ -33,7 +33,7 @@
                         </td>
                         <td>{{ $customer->email }}</td>
                         <td>
-                            <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-info btn-sm fw-bold">
+                            <a href="{{ route('customers.preview', $customer->id) }}" class="btn btn-info btn-sm fw-bold">
                                 <i class="bi bi-eye"></i> Ver
                             </a>
                             <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-secondary btn-sm fw-bold">
