@@ -22,6 +22,14 @@ class SellerController extends Controller
 
     public function edit(Seller $id)
     {
-        return view("pages.sellers.edit");
+        $seller = Seller::findOrFail($id);
+        return view("pages.sellers.edit", [
+            'seller' => $seller
+        ]);
+    }
+
+    public function preview(Seller $id)
+    {
+        return view("pages.sellers.preview");
     }
 }

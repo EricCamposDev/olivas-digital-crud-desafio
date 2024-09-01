@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("name");
             $table->string("email")->unique();
             $table->string("avatar");
+            $table->string('slug')->unique();
             $table->unsignedInteger("customer_type_id");
             $table->timestamps();
         });
